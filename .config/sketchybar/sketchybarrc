@@ -1,0 +1,48 @@
+#!/bin/bash
+
+source "$CONFIG_DIR/colors.sh"
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+FONT="Monaspace Neon:WideLight Medium:12.5" # fc-list | grep -i "monaspaceneon"     brew install --cask font-monaspace
+PADDINGS=2.5
+
+bar=(
+  height=34
+  blur_radius=30
+  position=top
+  sticky=on
+  color=$BAR_COLOR
+  shadow=off  
+  padding_right=10
+  padding_left=10
+  y_offset=-2.5
+  margin=-2.5
+  topmost=window
+)
+sketchybar --bar "${bar[@]}"
+
+default=(
+  updates=when_shown
+  label.font="$FONT"
+  label.color=$LABEL_COLOR
+  label.shadow.drawing=on
+  label.shadow.distance=1
+  label.shadow.color=$SHADOW_COLOR
+  scroll_texts=on
+)
+sketchybar --default "${default[@]}"
+
+# left 
+source "$PLUGIN_DIR/front_app/front_app.sh"
+
+# center
+source "$PLUGIN_DIR/spotify/spotify.sh"
+
+# right
+source "$PLUGIN_DIR/calendar/calendar.sh"
+source "$PLUGIN_DIR/weather/weather.sh"
+source "$PLUGIN_DIR/cpu/cpu.sh"
+source "$PLUGIN_DIR/memory/memory.sh"
+source "$PLUGIN_DIR/battery/battery.sh"
+
+sketchybar --hotload on
+sketchybar --update # forcing all item scripts to run (never do this outside of sketchybarrc)

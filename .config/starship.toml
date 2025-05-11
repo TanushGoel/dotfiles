@@ -1,0 +1,30 @@
+command_timeout = 10000
+
+add_newline = false
+
+[cmd_duration]
+min_time = 1000
+show_milliseconds = false
+disabled = false
+format = " 🕙 $duration($style)\n"
+
+[battery]
+disabled = true
+
+[directory]
+style = "cyan bold"
+
+[git_branch]
+symbol = " "
+format = "[$symbol$branch]($style) "
+[git_status]
+disabled = true
+
+[conda]
+symbol = "📦 "
+format = "[$symbol$environment](green bold)"
+ignore_base = true
+
+[docker_context]
+symbol = "🐳 "
+style = "blue bold"
