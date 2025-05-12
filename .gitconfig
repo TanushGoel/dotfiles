@@ -82,12 +82,13 @@
 	branches = branch -a
     remotes = remote -v
 
+# SSH instead of HTTPS
 [url "git@github.com:github"]
 	insteadOf = "https://github.com/github"
 	insteadOf = "github:github"
 	insteadOf = "git://github.com/github"
 
 [url "git@github.com:"]
-	pushInsteadOf = "https://github.com/"
-	pushInsteadOf = "github:"
-	pushInsteadOf = "git://github.com/"
+	insteadOf = "https://github.com/"
+	insteadOf = "github:"
+	insteadOf = "git://github.com/"

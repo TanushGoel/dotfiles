@@ -1,7 +1,7 @@
 local m = {
     "echasnovski/mini.surround",
     version = "*",
-    lazy = false,
+    event = "VeryLazy",
     config = function()
         require("mini.surround").setup {
             mappings = {

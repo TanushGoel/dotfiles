@@ -2,7 +2,7 @@
 
 source "$CONFIG_DIR/colors.sh"
 PLUGIN_DIR="$CONFIG_DIR/plugins"
-FONT="Monaspace Neon:WideLight Medium:12.5" # fc-list | grep -i "monaspaceneon"     brew install --cask font-monaspace
+FONT="Monaspace Neon:WideLight Medium:12.5" # fc-list | grep -i "monaspaceneon"
 PADDINGS=2.5
 
 bar=(

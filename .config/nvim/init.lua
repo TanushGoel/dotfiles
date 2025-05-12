@@ -17,7 +17,6 @@ spec("plugin.harpoon")
 spec("plugin.surround")
 spec("plugin.lualine")
 spec("plugin.copilot")
--- spec("plugin.image")
 
 require("plugin.lazy")
 

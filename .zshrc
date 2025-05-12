@@ -9,20 +9,10 @@ compinit -d "$ZSH_COMPDUMP"
 
 export GPG_TTY=$(tty)
 
-# >>> mamba initialize >>>  
-export MAMBA_EXE='/opt/homebrew/bin/mamba'; # brew install mamba
-export MAMBA_ROOT_PREFIX='/Users/tgoel/.local/share/mamba';
-__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
-if [ $? -eq 0 ]; then eval "$__mamba_setup"
-else alias mamba="$MAMBA_EXE"
-fi
-unset __mamba_setup
-export MAMBA_CHANGEPS1=false
-# <<< mamba initialize <<<
-
 eval "$(starship init zsh)"
 alias fetch="fastfetch"
 
+alias activate="source .venv/bin/activate"
 alias vim='nvim'; alias vi='nvim'
 hide_vim() {
   case "$1" in

@@ -7,7 +7,7 @@ return {
         cmd = "Oil",
 		opts = {
 			columns = {
-				"icon",
+				"icon"
 			},
 			win_options = {
 				winbar = "%{v:lua.require('oil').get_current_dir()}"

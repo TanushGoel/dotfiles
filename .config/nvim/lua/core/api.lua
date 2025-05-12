@@ -37,4 +37,4 @@ end
 
 open_external({"*.ipynb"}, "code")
 open_external({"*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.avif", "*.pdf"}, "open")
-open_external({"*.pdb", "*.cif"}, "pymol", "BufReadPre") -- brew install pymol
+open_external({"*.pdb", "*.cif"}, "pymol", "BufReadPre")

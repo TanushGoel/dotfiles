@@ -20,6 +20,15 @@ format = "[$symbol$branch]($style) "
 [git_status]
 disabled = true
 
+[python]
+symbol = "🐍 "
+format = "[$symbol$version]($style) "
+style = "green bold"
+
+[env_var.UV_VENV]
+variable = "VIRTUAL_ENV"
+format = '[uvenv](blue bold) ' # $env_value
+
 [conda]
 symbol = "📦 "
 format = "[$symbol$environment](green bold)"

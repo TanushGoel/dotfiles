@@ -5,7 +5,6 @@ return {
 }
 
 -- Typst instructions:
--- brew install typst
 -- typst compile file.typ
 -- typst compile path/to/source.typ path/to/output.pdf
 

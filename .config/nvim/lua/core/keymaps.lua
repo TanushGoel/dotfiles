@@ -13,6 +13,9 @@ map('i', '<C-s>', '<Esc>:w<CR>a', { noremap = true })
 -- delete without yanking
 map('v', '<leader>d', '"_d', { noremap = true, silent = true })
 
+-- no highlight
+map('n', '<leader>nh', ':nohl<CR>', { noremap = true, silent = true })
+
 -- increment/decrement numbers
 map("n", "<leader>+", "<C-a>") -- increment
 map("n", "<leader>-", "<C-x>") -- decrement
@@ -24,16 +27,21 @@ map("n", "<leader>lg", builtin.live_grep)
 map("n", "<leader>gs", builtin.grep_string)
 map("n", "<leader>git", builtin.git_status)
 map("n", "<leader>grep", function()
-   builtin.grep_string ({search = vim.fn.input("rg > ")}) -- brew install ripgrep
+   builtin.grep_string ({search = vim.fn.input("rg > ")})
 end)
 
 -- lsp keymaps
-map("n", "<leader>gd", vim.lsp.buf.definition)
-map("n", "<leader>gr", vim.lsp.buf.references)
-map("n", "<leader>gi", vim.lsp.buf.implementation)
-map("n", "<leader>ca", vim.lsp.buf.code_action)
-map("n", "<leader>K", vim.lsp.buf.hover)
-map("n", "<leader>rn", vim.lsp.buf.rename)
+map("n", "<leader>lf", vim.lsp.buf.format)
+map("n", "<leader>ld", vim.lsp.buf.definition)
+map("n", "<leader>lr", vim.lsp.buf.references)
+map("n", "<leader>li", vim.lsp.buf.implementation)
+map("n", "<leader>la", vim.lsp.buf.code_action)
+map("n", "K", vim.lsp.buf.hover)
+map("n", "<leader>rn", vim.lsp.buf.rename) -- :'<,'>s/word/replace
+
+-- diagnostics
+map("n", "<leader>e", vim.diagnostic.open_float, { desc = "show diagnostics" })
+map("n", "<leader>E", vim.diagnostic.setloclist, { desc = "show diagnostics in location list" })
 
 -- copilot
 vim.g.copilot_no_tab_map = true
@@ -51,7 +59,3 @@ map("n", "<leader>hs", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>",
 -- splits
 map("n", "<leader>sh", "<CMD>split<CR>", { desc = "split window horizontally" })
 map("n", "<leader>sv", "<CMD>vsplit<CR>", { desc = "split window vertically" })
-
--- diagnostics
-map("n", "<leader>e", vim.diagnostic.open_float, { desc = "show diagnostics" })
-map("n", "<leader>E", vim.diagnostic.setloclist, { desc = "show diagnostics in location list" })
