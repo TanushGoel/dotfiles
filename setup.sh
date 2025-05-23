@@ -11,33 +11,37 @@ for dir in nvim kitty tmux sketchybar fastfetch icons raycast vscode aerospace g
 done
 # find ~ -type l ! -exec test -e {} \; -exec rm {} \;
 
+./.config/icons/change.sh
+
 # installation list:
 # brew install git
-# brew install tmux
 # brew install wget
 # brew install ripgrep
+
 # brew install fastfetch
 # brew install starship
-# brew install tree-sitter
-#
+
+# brew install lua
 # brew install node
 # brew install uv
-# brew install python@3.13
-# brew install lua
-# brew install luajit
-# brew install gcc
-#
+# brew install pixi
+
 # brew install bash
 # brew install zsh
-# brew install neovim
 # brew install kitty
-#
+# brew install tmux
+# brew install neovim
+
 # brew install openssh
 # brew install gnupg
-#
+
 # brew install typst
-#
-# brew install --cask sketchybar
+# brew install pymol
+
+# brew tap FelixKratz/formulae
+# brew install sketchybar
+# brew services start sketchybar
+
 # brew install --cask font-monaspace
-# brew install --cask aerospace
 # brew install --cask raycast
+# brew install --cask nikitabobko/tap/aerospace

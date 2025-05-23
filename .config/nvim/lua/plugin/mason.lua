@@ -1,12 +1,12 @@
 local M = {
-   'williamboman/mason.nvim',
+   'mason-org/mason.nvim',
    dependencies = {
-      'williamboman/mason-lspconfig.nvim',
+      'mason-org/mason-lspconfig.nvim',
       'nvim-lua/plenary.nvim',
    },
    servers = {
       "lua_ls",
-      "pyright",
+      "ruff",
       "clangd"
    },
    build = ":MasonUpdate",
@@ -43,7 +43,15 @@ function M.config()
 
    lsp.setup()
 
-   require("mason").setup()
+   require("mason").setup({
+      ui = {
+         icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+         }
+      }
+   })
    require("mason-lspconfig").setup({
       ensure_installed = M.servers,
       automatic_installation = true,
@@ -59,3 +67,5 @@ return M
 
 -- :Mason 
 -- i to install
+-- u to update
+-- X to uninstall

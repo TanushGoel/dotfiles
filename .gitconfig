@@ -15,6 +15,9 @@
 [pull]
     rebase = true
 
+[push]
+	autoSetupRemote = true
+
 [core]
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes

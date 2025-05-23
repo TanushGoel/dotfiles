@@ -42,6 +42,8 @@ map("n", "<leader>rn", vim.lsp.buf.rename) -- :'<,'>s/word/replace
 -- diagnostics
 map("n", "<leader>e", vim.diagnostic.open_float, { desc = "show diagnostics" })
 map("n", "<leader>E", vim.diagnostic.setloclist, { desc = "show diagnostics in location list" })
+map("n", "<leader>ln", vim.diagnostic.goto_next, { desc = "go to next diagnostic" })
+map("n", "<leader>lp", vim.diagnostic.goto_prev, { desc = "go to previous diagnostic" })
 
 -- copilot
 vim.g.copilot_no_tab_map = true
@@ -54,7 +56,7 @@ map("n", "<leader>hm", "<cmd>lua require('harpoon.mark').add_file()<cr>", { desc
 map("n", "<leader>hr", "<cmd>lua require('harpoon.mark').remove_file()<cr>", { desc = "remove harpoon mark" })
 map("n", "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<cr>", { desc = "go to next harpoon mark" })
 map("n", "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", { desc = "go to previous harpoon mark" })
-map("n", "<leader>hs", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", { desc = "show harpoon marks" })
+map("n", "<leader>hh", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", { desc = "show harpoon marks" })
 
 -- splits
 map("n", "<leader>sh", "<CMD>split<CR>", { desc = "split window horizontally" })

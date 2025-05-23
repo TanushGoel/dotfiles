@@ -36,5 +36,5 @@ local function open_external(patterns, command, event)
 end
 
 open_external({"*.ipynb"}, "code")
-open_external({"*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.avif", "*.pdf"}, "open")
+open_external({"*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.avif", "*.pdf", "*.heic"}, "open")
 open_external({"*.pdb", "*.cif"}, "pymol", "BufReadPre")

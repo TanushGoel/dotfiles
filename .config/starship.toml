@@ -29,10 +29,12 @@ style = "green bold"
 variable = "VIRTUAL_ENV"
 format = '[uvenv](blue bold) ' # $env_value
 
-[conda]
-symbol = "📦 "
-format = "[$symbol$environment](green bold)"
-ignore_base = true
+[pixi]
+disabled = true
+[env_var.PIXI_ENVIRONMENT_NAME]
+variable = "PIXI_ENVIRONMENT_NAME"
+format = '[pixi]($style) '
+style = 'yellow bold'
 
 [docker_context]
 symbol = "🐳 "

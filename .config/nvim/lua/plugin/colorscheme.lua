@@ -1,4 +1,4 @@
-local M = { 
+local M = {
     "gbprod/nord.nvim",
     priority = 1000,
     lazy = false

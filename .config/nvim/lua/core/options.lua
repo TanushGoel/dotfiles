@@ -35,3 +35,12 @@ opt.iskeyword:append("-") -- consider string-string as whole word
 
 -- better syntax highlighting
 opt.conceallevel = 0
+
+-- remove swap files, add undo files
+vim.opt.swapfile = false
+vim.opt.undofile = true
+local undodir = vim.fn.stdpath("config") .. "/undodir"
+vim.opt.undodir = undodir
+if vim.fn.isdirectory(undodir) == 0 then
+  vim.fn.mkdir(undodir, "p", 0700)
+end
