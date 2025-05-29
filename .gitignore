@@ -1,3 +1,4 @@
 github-copilot
-.config/nvim/undodir
+nvim/etc
+.api_key
 **/.DS_Store
