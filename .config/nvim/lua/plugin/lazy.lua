@@ -11,4 +11,22 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require "lazy".setup(LAZY_SPEC)
+require "lazy".setup(LAZY_SPEC, {
+    performance = {
+        rtp = {
+            disabled_plugins = {
+                "gzip", "zip", "zipPlugin", "tar", "tarPlugin",
+                "getscript", "getscriptPlugin", "vimball", "vimballPlugin",
+                "2html_plugin", "matchparen", "logipat", "rrhelper",
+                "netrw", "netrwPlugin", "netrwSettings", "netrwFileHandlers",
+            }
+        },
+        cache = {
+            enabled = true,
+            paths = {
+                vim.fn.stdpath("cache") .. "/lazy",
+                ttl = 3600 * 24 -- 1 day
+            }
+        }
+    }
+})

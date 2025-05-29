@@ -1,6 +1,9 @@
 export DYLD_LIBRARY_PATH=/opt/homebrew/lib/
 export DYLD_FALLBACK_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_FALLBACK_LIBRARY_PATH"
 export HOMEBREW_NO_AUTO_UPDATE=1
+alias brewup='brew update && brew upgrade && brew autoremove && brew cleanup && brew doctor'
+
+export NODE_EXTRA_CA_CERTS=~/.cacert.pem
 
 autoload -Uz compinit
 ZSH_COMPDUMP="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
@@ -29,9 +32,10 @@ alias flush="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 alias g='git'
 alias gs='git s'
 alias ga='git add'
-alias gaa='git add --all'
+alias gaa='git add -A'
 alias gc='git commit'
 alias gcm='git commit -m'
+alias gcl='git cl'
 alias gp='git p'
 alias gpu='git push'
 alias gco='git go'

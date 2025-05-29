@@ -1,4 +1,4 @@
-vim.loader.enable()
+vim.loader.enable() -- module caching
 
 require("core.options")
 require("core.keymaps")
@@ -17,13 +17,6 @@ spec("plugin.harpoon")
 spec("plugin.surround")
 spec("plugin.lualine")
 spec("plugin.copilot")
+spec("plugin.copilotchat")
 
 require("plugin.lazy")
-
-for _, plugin in ipairs({
-  "gzip", "zip", "zipPlugin", "tar", "tarPlugin",
-  "getscript", "getscriptPlugin", "vimball", "vimballPlugin",
-  "2html_plugin", "matchparen", "logipat", "rrhelper", "netrw", "netrwPlugin", "netrwSettings", "netrwFileHandlers",
-}) do
-  vim.g["loaded_" .. plugin] = 1
-end

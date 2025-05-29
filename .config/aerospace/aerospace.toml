@@ -164,12 +164,16 @@ alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
-# [[on-window-detected]]
-# if.app-id = "net.kovidgoyal.kitty"
-# run = "move-node-to-workspace C" # cat, console
-# [[on-window-detected]]
-# if.app-id = "com.microsoft.VSCode"
-# run = "move-node-to-workspace V" # vscode
+[[on-window-detected]]
+if.app-id = "net.kovidgoyal.kitty"
+run = "move-node-to-workspace C" # cat, console
+
+[[on-window-detected]]
+if.app-id = "com.microsoft.VSCode"
+run = "move-node-to-workspace V" # vscode
+[[on-window-detected]]
+if.app-id = "com.todesktop.230313mzl4w4u92" # cursor
+run = "move-node-to-workspace V" # (vscode fork)
 
 [[on-window-detected]]
 if.app-id = "company.thebrowser.Browser"
@@ -185,3 +189,7 @@ run = "move-node-to-workspace N" # notes
 [[on-window-detected]]
 if.app-id = "com.spotify.client"
 run = "move-node-to-workspace M" # music
+
+[[on-window-detected]]
+if.app-id = "com.hnc.Discord"
+run = "move-node-to-workspace X" # x = cross-communication

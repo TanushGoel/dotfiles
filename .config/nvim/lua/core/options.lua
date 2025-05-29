@@ -33,14 +33,23 @@ opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or 
 opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 opt.iskeyword:append("-") -- consider string-string as whole word
 
+-- autocompletion
+opt.completeopt = { "menu", "menuone", "noinsert", "noselect" }
+-- show completion menu - don't auto insert text or select first item
+
+-- responsiveness
+opt.updatetime = 300 -- time is ms before triggering CursorHold event
+opt.timeout = true -- timeout for key mappings
+opt.timeoutlen = 300 -- time in ms to wait for mapped sequence to complete
+
 -- better syntax highlighting
 opt.conceallevel = 0
 
--- remove swap files, add undo files
-vim.opt.swapfile = false
-vim.opt.undofile = true
+-- file handling
+opt.swapfile = false -- disable swap files
+opt.undofile = true -- enable persistent undo
 local undodir = vim.fn.stdpath("config") .. "/undodir"
-vim.opt.undodir = undodir
+opt.undodir = undodir -- directory for storing undo files
 if vim.fn.isdirectory(undodir) == 0 then
   vim.fn.mkdir(undodir, "p", 0700)
 end

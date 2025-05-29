@@ -17,8 +17,8 @@ change_icon() {
 }
 
 change_icon "/Applications/kitty.app" "/Contents/Resources/kitty.icns" "kitty.ico"
-change_icon "/Applications/Visual Studio Code.app" "/Contents/Resources/Code.icns" "vscode.ico"
-change_icon "/Applications/Cursor.app" "/Contents/Resources/Cursor.icns" "cursor.ico"
+change_icon "/Applications/Visual Studio Code.app" "/Contents/Resources/Code.icns" "code.ico"
+change_icon "/Applications/Cursor.app" "/Contents/Resources/Cursor.icns" "code.ico"
 change_icon "/Applications/Tor Browser.app" "/Contents/Resources/firefox.icns" "tor.ico"
 change_icon "/Applications/Obsidian.app" "/Contents/Resources/icon.icns" "obsidian.ico"
 change_icon "/Applications/Spotify.app" "/Contents/Resources/Icon.icns" "spotify.ico"

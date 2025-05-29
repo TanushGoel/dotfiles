@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
+# symlinks
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
 ln -sf ~/dotfiles/.zprofile ~/.zprofile
 ln -sf ~/dotfiles/.hushlogin ~/.hushlogin
@@ -11,37 +12,22 @@ for dir in nvim kitty tmux sketchybar fastfetch icons raycast vscode aerospace g
 done
 # find ~ -type l ! -exec test -e {} \; -exec rm {} \;
 
-./.config/icons/change.sh
+./.config/icons/change.sh  # change app icons
 
-# installation list:
-# brew install git
-# brew install wget
-# brew install ripgrep
+curl -o ~/.cacert.pem https://curl.se/ca/cacert.pem  # mozilla's CA cert bundle
 
-# brew install fastfetch
-# brew install starship
+# installations
+if ! command -v brew &>/dev/null; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
 
-# brew install lua
-# brew install node
-# brew install uv
-# brew install pixi
-
-# brew install bash
-# brew install zsh
-# brew install kitty
-# brew install tmux
-# brew install neovim
-
-# brew install openssh
-# brew install gnupg
-
-# brew install typst
-# brew install pymol
-
-# brew tap FelixKratz/formulae
-# brew install sketchybar
-# brew services start sketchybar
-
-# brew install --cask font-monaspace
-# brew install --cask raycast
-# brew install --cask nikitabobko/tap/aerospace
+brew install git ripgrep
+brew install fastfetch starship
+brew install lua node uv pixi
+brew install bash zsh kitty tmux neovim
+brew install openssh gnupg
+brew install typst pymol
+brew install --cask font-monaspace raycast nikitabobko/tap/aerospace
+brew tap FelixKratz/formulae
+brew install sketchybar
+brew services start sketchybar

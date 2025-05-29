@@ -6,7 +6,8 @@ local M = {
    },
    servers = {
       "lua_ls",
-      "ruff",
+      "pyright",
+      "ruff", "ty",
       "clangd"
    },
    build = ":MasonUpdate",
@@ -22,13 +23,17 @@ function M.config()
 
    cmp.setup({
       mapping = cmp.mapping.preset.insert({
-         ['<Tab>'] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Insert,
-            select = true
-         }),
-         ['<C-Space>'] = cmp.mapping.complete(),
+         ['<C-l>'] = cmp.mapping(function(fallback)
+           if cmp.visible() and cmp.get_selected_entry() then
+              cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+           else
+              fallback()
+           end
+         end, { "i", "s" }),
          ['<C-f>'] = cmp_action.luasnip_jump_forward(),
          ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+         ['<C-u>'] = cmp.mapping.scroll_docs(4)
       }),
       snippet = {
          expand = function(args)
@@ -40,8 +45,6 @@ function M.config()
          { name = 'luasnip' }
       })
    })
-
-   lsp.setup()
 
    require("mason").setup({
       ui = {
@@ -61,6 +64,7 @@ function M.config()
          end
       }
    })
+   lsp.setup()
 end
 
 return M
