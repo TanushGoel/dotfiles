@@ -48,8 +48,8 @@ opt.conceallevel = 0
 -- file handling
 opt.swapfile = false -- disable swap files
 opt.undofile = true -- enable persistent undo
-local undodir = vim.fn.stdpath("config") .. "/etc/undo"
-opt.undodir = undodir -- directory for storing undo files
+local undodir = vim.fn.stdpath("state") .. "/undo"
+opt.undodir = undodir -- ~/.local/state/nvim/undo
 if vim.fn.isdirectory(undodir) == 0 then
   vim.fn.mkdir(undodir, "p", 0700)
 end

@@ -35,7 +35,7 @@ sketchybar --default "${default[@]}"
 source "$PLUGIN_DIR/front_app/front_app.sh"
 
 # center
-source "$PLUGIN_DIR/spotify/spotify.sh"
+# source "$PLUGIN_DIR/spotify/spotify.sh"
 
 # right
 source "$PLUGIN_DIR/calendar/calendar.sh"

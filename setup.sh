@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # symlinks
-ln -sf ~/dotfiles/.zshrc ~/.zshrc
-ln -sf ~/dotfiles/.zprofile ~/.zprofile
-ln -sf ~/dotfiles/.hushlogin ~/.hushlogin
+ln -sf ~/dotfiles/shell/.zshrc ~/.zshrc
+ln -sf ~/dotfiles/shell/.zprofile ~/.zprofile
+ln -sf ~/dotfiles/shell/.hushlogin ~/.hushlogin
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 mkdir -p ~/.config
 ln -sf ~/dotfiles/starship.toml ~/.config/starship.toml
@@ -23,16 +23,17 @@ find ~/dotfiles -type f -name "*.sh" -exec chmod +x {} \; # make scripts executa
 curl -o ~/.cacert.pem https://curl.se/ca/cacert.pem  # mozilla's CA cert bundle
 
 # installations
-if ! command -v brew &>/dev/null; then
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
-brew install git ripgrep
-brew install fastfetch starship
-brew install lua node uv pixi
-brew install bash zsh kitty tmux neovim
-brew install openssh gnupg
-brew install typst pymol
-brew install --cask font-monaspace raycast nikitabobko/tap/aerospace
-brew tap FelixKratz/formulae
-brew install sketchybar
+command -v brew &>/dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+install_if_missing() { command -v "$1" >/dev/null 2>&1 || brew install "$1"; }
+install_cask_if_missing() { brew list --cask "$1" >/dev/null 2>&1 || brew install --cask "$1"; }
+
+for pkg in git ripgrep fastfetch starship lua node uv pixi bash zsh kitty tmux neovim openssh gnupg lynx typst pymol; do
+  install_if_missing "$pkg"
+done
+
+install_cask_if_missing font-monaspace
+install_cask_if_missing raycast
+install_cask_if_missing nikitabobko/tap/aerospace
+
+brew list sketchybar >/dev/null 2>&1 || { brew tap FelixKratz/formulae && brew install sketchybar; }
 brew services start sketchybar

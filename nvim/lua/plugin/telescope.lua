@@ -5,7 +5,7 @@ local M = {
         {"nvim-telescope/telescope-fzf-native.nvim", build = "make"}
     },
     lazy = true,
-    cmd = "Telescope",
+    cmd = "Telescope"
 }
 
 function M.config()
@@ -28,7 +28,6 @@ function M.config()
                     ["<C-n>"] = actions.cycle_history_next,
                     ["<C-p>"] = actions.cycle_history_prev
                 },
-
                 n = {
                     ["j"] = actions.move_selection_next,
                     ["k"] = actions.move_selection_previous,
