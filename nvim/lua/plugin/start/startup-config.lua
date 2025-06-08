@@ -8,7 +8,7 @@ local settings = {
         content = require("plugin.start.image_ascii"), -- require("startup.headers").hydra_header,
         highlight = "Statement",
         default_color = "",
-        oldfiles_amount = 0,
+        oldfiles_amount = 0
     },
     header_2 = {
         type = "text",
@@ -20,7 +20,7 @@ local settings = {
         content = require("plugin.start.nvim_ascii"),
         highlight = "Constant",
         default_color = "",
-        oldfiles_amount = 0,
+        oldfiles_amount = 0
     },
 
     body = {
@@ -35,11 +35,11 @@ local settings = {
             { "Old File", "Telescope oldfiles", "<leader>of" },
             { "New File", "lua require'startup'.new_file()", "<leader>nf" },
             { "Obsidian", "cd $HOME/0brain/ | Telescope find_files", "obs" },
-            { "Code", "cd $HOME/1code/ | Telescope find_files", "code" },
+            { "Code", "cd $HOME/1code/ | Telescope find_files", "code" }
         },
         highlight = "String",
         default_color = "",
-        oldfiles_amount = 0,
+        oldfiles_amount = 0
     },
     body_2 = {
         type = "oldfiles",
@@ -51,7 +51,7 @@ local settings = {
         content = {},
         highlight = "String",
         default_color = "#FFFFFF",
-        oldfiles_amount = 5,
+        oldfiles_amount = 5
     },
 
     footer = {
@@ -64,7 +64,7 @@ local settings = {
         content = { "startup.nvim" },
         highlight = "String",
         default_color = "#FFFFFF",
-        oldfiles_amount = 5,
+        oldfiles_amount = 5
     },
 
     options = {
@@ -75,11 +75,11 @@ local settings = {
         cursor_column = 0.5,
         empty_lines_between_mappings = true,
         disable_statuslines = true,
-        paddings = { 2, 2, 2, 2, 2, 2, 2 },
+        paddings = { 2, 2, 2, 2, 2, 2, 2 }
     },
     colors = {
         background = "#1f2227",
-        folded_section = "#56b6c2",
+        folded_section = "#56b6c2"
     },
     parts = {
         "header",

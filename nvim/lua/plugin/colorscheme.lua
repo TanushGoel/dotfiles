@@ -6,7 +6,7 @@ local M = {
 
 M.config = function()
     vim.opt.termguicolors = true
-    vim.cmd "colorscheme nord"
+    vim.cmd.colorscheme("nord")
 end
 
-return M;
+return M

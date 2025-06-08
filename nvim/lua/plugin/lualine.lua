@@ -10,7 +10,7 @@ M.config = function()
             icons_enabled = true,
             theme = 'auto',
             section_separators = { '', '' },
-            component_separators = { '', '' },
+            component_separators = { '', '' }
         },
         extensions = { 'nvim-tree' },
         sections = {

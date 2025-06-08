@@ -1,7 +1,15 @@
-export DYLD_LIBRARY_PATH=/opt/homebrew/lib/
-export DYLD_FALLBACK_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_FALLBACK_LIBRARY_PATH"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    export DYLD_LIBRARY_PATH=/opt/homebrew/lib/
+    export DYLD_FALLBACK_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_FALLBACK_LIBRARY_PATH"
+    export PATH="/opt/homebrew/bin:$PATH"
+    alias brewup='brew update && brew upgrade && brew autoremove && brew cleanup && brew doctor'
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    export LD_LIBRARY_PATH=/opt/homebrew/lib/:$LD_LIBRARY_PATH
+    export LD_LIBRARY_PATH="$(brew --prefix)/lib:$LD_LIBRARY_PATH"
+    export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+fi
 export HOMEBREW_NO_AUTO_UPDATE=1
-alias brewup='brew update && brew upgrade && brew autoremove && brew cleanup && brew doctor'
+export PATH="$HOME/.pixi/bin:$PATH"
 
 export NODE_EXTRA_CA_CERTS=~/.cacert.pem
 
@@ -16,18 +24,19 @@ eval "$(starship init zsh)"
 alias fetch="fastfetch"
 
 remove_venv_prefix() { [[ $PS1 == \(*\)* ]] && PS1="${PS1/\(*\) /}"; }
-autoload -U add-zsh-hook
+autoload -Uz add-zsh-hook
 add-zsh-hook precmd remove_venv_prefix
 
 alias activate="source .venv/bin/activate"
 alias vim='nvim'; alias vi='nvim'
 hide_nvim() { [[ $1 == vim* || $1 == nvim* || $1 == vi* ]] && printf '\033[2A\033[2K'; }
-autoload -Uz add-zsh-hook
 add-zsh-hook preexec hide_nvim
 
-alias ls='ls -G'; alias lt='du -sh * | sort -rh'; alias left='ls -t -1'
+alias ls='ls --color=auto'; alias lt='du -sh * | sort -rh'; alias left='ls -t -1'
 
-alias flush="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
+if [[ "$OSTYPE" == "darwin"* ]]; then alias flush="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then alias flush="sudo systemctl flush-dns || sudo systemd-resolve --flush-caches" 
+fi
 
 alias g='git'
 alias gl='git l'

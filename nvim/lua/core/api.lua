@@ -36,5 +36,6 @@ local function open_external(patterns, command, event)
 end
 
 open_external({"*.ipynb"}, "cursor")
-open_external({"*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.avif", "*.pdf", "*.heic"}, "open")
 open_external({"*.pdb", "*.cif"}, "pymol", "BufReadPre")
+local open_cmd = vim.loop.os_uname().sysname == "Darwin" and "open" or "xdg-open"
+open_external({"*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.avif", "*.pdf", "*.heic"}, open_cmd)

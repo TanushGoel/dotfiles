@@ -18,7 +18,7 @@ require "lazy".setup(LAZY_SPEC, {
                 "gzip", "zip", "zipPlugin", "tar", "tarPlugin",
                 "getscript", "getscriptPlugin", "vimball", "vimballPlugin",
                 "2html_plugin", "matchparen", "logipat", "rrhelper",
-                "netrw", "netrwPlugin", "netrwSettings", "netrwFileHandlers",
+                "netrw", "netrwPlugin", "netrwSettings", "netrwFileHandlers"
             }
         },
         cache = {
