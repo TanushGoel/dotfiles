@@ -6,7 +6,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
     export LD_LIBRARY_PATH=/opt/homebrew/lib/:$LD_LIBRARY_PATH
     export LD_LIBRARY_PATH="$(brew --prefix)/lib:$LD_LIBRARY_PATH"
-    export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+    export PATH="$HOME/.linuxbrew/bin:$PATH"
 fi
 export HOMEBREW_NO_AUTO_UPDATE=1
 export PATH="$HOME/.pixi/bin:$PATH"
